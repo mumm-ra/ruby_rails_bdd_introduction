@@ -1,26 +1,149 @@
 %section#intro
   = image_tag "logo.png"
 
-  %h3 Headline
+  %h1 Ruby
+  %h3 Rails and BDD
 
   %p
-    = image_tag "image.gif"
-    %br
-    = File.mtime(__FILE__).strftime("%d.%m.%Y")
+    %small Created by BB and SS
 
 %section
   %section
-    %blockquote
-      Quotes
-
+    %h2 Ruby
+    %p A little history
   %section
-    its html, so try embedding iframes, google trends, youtube videos etc.
-
+    %h3 Ruby
+    %ul
+      %li 1993 - 1995 - 2005
+      %li Perl - Python - Smalltalk
+      %li Several implementations 
+      %li RubySpec
+      %li Happy and Productive Programmers
+%section
   %section
-    %h2 Code
-    %code.ruby
+    %h2 Ruby Syntax
+    %p Starting from scratch.
+  %section
+    %h2 Going deep...
+    %ul
+      %li Fully Object Oriented
+      %li Interpreted
+      %li Strongly typed with dynamic types
+      %li Duck typing
+      %li Succint and flexible syntax
+  %section
+    %h2 Hello World
     %pre.prettyprint.lang-ruby
-      %code.lang-ruby
+      %code.lang-ruby puts 'Hello World'
+  %section
+    %h2 IRB
+    %p Interactive Ruby Shell
+  %section
+    %h2 RubyGems
+    %p Centralized package management.
+%section
+  %section
+    %h1 Ruby on Rails
+    %p Web development that doesn't hurt
+  %section
+    %h2 The framework
+    %ul
+      %li Active Record Pattern
+      %li Convention over configuration
+      %li Don't repeat yourself
+      %li Model View Controller architecture
+  %section
+    %h2 Convention over configuration
+    %ul
+      %li Table names
+      %li Foreign Keys
+      %li Routing
+      %li Templates
+      %li Generators
+  %section
+    %h2 Convention over configuration
+    %p Examples
+  %section
+    %h2 Don't Repeat Yourself
+    %ul
+      %li Model-driven architecture
+  %section
+    %h2 Scaffolding
+    %p Example
+  %section
+    %h2 REST
+    %p Table of REST actions and HTTP verbs
+  %section
+    %h2 MVC: The View
+    %ul
+      %li 
+        HTML
+        %ul
+          %li ERB
+          %li Haml
+          %li Slim
+      %li JSON
+      %li XML
+  %section
+    %h2 Bundler
+    %p Example
+  %section
+    %h2 Deployment
+    %p Example
+%section
+  %section
+    %h1 Behavior Driven Development
+    %p Cucumber & RSpec
+  %section
+    %p
+      BDD is a second-generation, outside-in, pull-based, multiple-stakeholder, multiple-scale, high-automation, agile methodology. It describes a cycle of interactions with well-defined outputs, resulting in the delivery of working, tested software that matters.
+  %section
+    %h2 Gherkin Example
+    %pre.prettyprint
+      %code
         :preserve
-          if a?.has(":something")?
-            console.log "..."
+          Feature: Division
+            In order to avoid silly mistakes
+            Cashiers must be able to calculate a fraction
+
+            Scenario: Regular numbers
+              * I have entered 3 into the calculator
+              * I have entered 2 into the calculator
+              * I press divide
+              * the result should be 1.5 on the screen
+  %section
+    %h2 Gherkin Example
+    %pre.prettyprint.lang-ruby
+      %code.lang-ruby   
+        :preserve      
+          Before do
+            @calc = Calculator.new
+          end
+           
+          After do
+          end
+           
+          Given /I have entered (\d+) into the calculator/ do |n|
+            @calc.push n.to_i
+          end
+           
+          When /I press (\w+)/ do |op|
+            @result = @calc.send op
+          end
+           
+          Then /the result should be (.*) on the screen/ do |result|
+            @result.should == result.to_f
+          end
+  %section
+    %h2 BDD
+    %ul 
+      %li Acceptance tests
+      %li Business value
+      %li Gherkin
+      %li Natural Language
+  %section
+    %h2 Gherkin Example
+%section
+  %h1 Questions ?
+%section
+  %h1 Thanks
