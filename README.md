@@ -1,36 +1,4 @@
-# Reveal.js middleman template
+# Ruby, Rails and BDD introductory course.
 
-Making presentation in the awesome reveal.js slide framework.
-Compiled to use with middleman pipeline:
-
-* Haml
-* Sass
-* Coffeescript
-* reveal.js ready to use
-* Syntax HL with google prettify
-
-
-
-## Usage
-
-
-Download:
-```
-git clone git://github.com/zealot128/middleman-reveal.js-template.git my-awesome-presentation
-cd my-awesome-presentation
-```
-
-Bootstrap:
-
-```
-bundle
-middleman
-```
-
-``middleman build`` for static site built.
-
-just edit index.html.haml for presentation
-
-Change theme inside ``javascripts/all.js:9``
-
+Slides for the Ruby, Rails and Behavior Driven Development introductory course.
 
