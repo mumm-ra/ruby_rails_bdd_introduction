@@ -1,6 +1,5 @@
 
 require "fileutils"
-require 'middleman-gh-pages'
 
 desc "Refresh 3rd party assets"
 task :copy_assets do
