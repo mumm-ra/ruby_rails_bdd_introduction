@@ -1,5 +1,4 @@
 %section#intro
-  = image_tag "logo.png"
 
   %h1 Ruby
   %h3 Rails and BDD
@@ -16,8 +15,7 @@
     %ul
       %li 1993 - 1995 - 2005
       %li Perl - Python - Smalltalk
-      %li Several implementations 
-      %li RubySpec
+      %li Several implementations - RubySpec
       %li Happy and Productive Programmers
 %section
   %section
@@ -98,6 +96,13 @@
     %p
       BDD is a second-generation, outside-in, pull-based, multiple-stakeholder, multiple-scale, high-automation, agile methodology. It describes a cycle of interactions with well-defined outputs, resulting in the delivery of working, tested software that matters.
   %section
+    %h2 BDD
+    %ul 
+      %li Acceptance tests
+      %li Business value
+      %li Gherkin
+      %li Natural Language
+  %section
     %h2 Gherkin Example
     %pre.prettyprint
       %code
@@ -134,13 +139,6 @@
           Then /the result should be (.*) on the screen/ do |result|
             @result.should == result.to_f
           end
-  %section
-    %h2 BDD
-    %ul 
-      %li Acceptance tests
-      %li Business value
-      %li Gherkin
-      %li Natural Language
   %section
     %h2 Gherkin Example
 %section
