@@ -64,10 +64,8 @@
   %section
     %h2 The framework
     %ul
+      %li MVC Architecture
       %li Active Record Pattern
-      %li Convention over configuration
-      %li Don't repeat yourself
-      %li Model View Controller architecture
   %section
     %h3 Convention over configuration
     %img{src: "images/sexpl18.jpg", width:"400px", height:"550px", alt: "Ruby logo"}
@@ -80,26 +78,86 @@
       %li Templates
       %li Generators
   %section
+    %h3 Convention over configuration
+    %p Doing the configuration
+    %pre
+      %code.lang-ruby
+        :preserve
+          class Post < ActiveRecord::Base
+            set_table_name 'news'
+
+            has_many :comments, class_name: 'Comentario', 
+              primary_key: 'news_id'
+          end
+    %p Following the convention
+    %pre
+      %code.lang-ruby
+        :preserve
+          class Post < ActiveRecord::Base
+            has_many :comments
+          end
+
+  %section
     %h2 Don't Repeat Yourself
-    %ul
-      %li Model-driven architecture
+    %p Every piece of knowledge must have a single, unambiguous, authoritative representation within a system
     %img{src: "images/DRY.jpg", alt: "Ruby logo"}
   %section
     %h2 Scaffolding
     %img{src: "images/scaffold.gif", alt: "Ruby logo"}
   %section
     %h2 REST
-    %p Table of REST actions and HTTP verbs
-    %img{src: "images/rest3.jpg", width:"300px", height:"500px", alt: "Ruby logo"}
+    %small
+      <table class="wikitable">
+      <tbody><tr>
+      <th>Resource</th>
+      <th>GET</th>
+      <th>PUT</th>
+      <th>POST</th>
+      <th>DELETE</th>
+      </tr>
+      <tr>
+      <th><code>http://url.com/resources</code></th>
+      <td><b>List</b> the URIs.</td>
+      <td><b>Replace</b> the entire collection with another collection.</td>
+      <td><b>Create</b> a new entry in the collection.</td>
+      <td><b>Delete</b> the entire collection.</td>
+      </tr>
+      <tr>
+      <th><code>http://url.com/resources/item17</code></th>
+      <td><b>Retrieve</b> a representation of the addressed member of the collection.</td>
+      <td><b>Replace</b> the addressed member of the collection, or if it doesn't exist, <b>create</b> it.</td>
+      <td>Not generally used.</td>
+      <td><b>Delete</b> the addressed member of the collection.</td>
+      </tr>
+      </tbody></table>
+    %p versus
+    %small
+      %ul
+        %li getUsers()
+        %li getNewUsersSince(date SinceDate)
+        %li savePurchaseOrder(string CustomerID, string PurchaseOrderID)
+    /%img{src: "images/rest3.jpg", width:"300px", height:"500px", alt: "Ruby logo"}
   %section
-    %h2 MVC: The View
+    %h2 The View
     %ul
       %li 
         HTML
         %ul
-          %li ERB
-          %li Haml
-          %li Slim
+          %li 
+            ERB
+            %pre
+              :escaped
+                <p> Welcome, <%= user.name %> </p>
+          %li 
+            Haml
+            %pre
+              = '%p= "Welcome, #{user.name}"'
+
+          %li 
+            Slim
+            %pre
+              = 'p "Welcome, #{user.name}"'
+
       %li JSON
       %li XML
   %section
@@ -202,6 +260,8 @@
     %p Write enough code to make it pass
     %pre.prettify.lang-ruby
       %code.lang-ruby
+        %aside.notes
+          Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
         :preserve
           # bowling.rb
           class Bowling
