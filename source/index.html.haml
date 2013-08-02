@@ -65,6 +65,7 @@
     %h2 The framework
     %ul
       %li MVC Architecture
+      %img{src: "images/mvc.jpg"}
       %li Active Record Pattern
   %section
     %h3 Convention over configuration
@@ -103,7 +104,13 @@
     %img{src: "images/DRY.jpg", alt: "Ruby logo"}
   %section
     %h2 Scaffolding
-    %img{src: "images/scaffold.gif", alt: "Ruby logo"}
+    %img{src: "images/scaffold.JPG", alt: "Scaffold"}
+    %pre
+      %code
+        :preserve
+          $ rails generate scaffold Post title description:text date:date
+          $ rake db:migrate
+          $ rails server
   %section
     %h2 REST
     %small
