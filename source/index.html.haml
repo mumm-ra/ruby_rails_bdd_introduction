@@ -167,6 +167,66 @@
             @result.should == result.to_f
           end
   %section
+    %h2 RSpec
+    %blockquote
+      RSpec is a Behavior-Driven Development tool for Ruby programmers. RSpec helps you do the TDD part of BDD, focusing on the documentation and design aspects of TDD.
+    /%img{src: "images/bdd-cycle-around-tdd-cycles.png", alt: "Ruby logo"}
+  %section
+    %h2 RSpec
+    %p Express some basic desired behavior
+    %pre.prettyprint.lang-ruby
+      %code.lang-ruby
+        :preserve
+          # bowling_spec.rb
+          require 'bowling'
+
+          describe Bowling, "#score" do
+            it "returns 0 for all gutter game" do
+              bowling = Bowling.new
+              20.times { bowling.hit(0) }
+              expect(bowling.score).to eq(0)
+            end
+          end
+  %section
+    %h2 RSpec
+    %p Run the example and watch it fail
+    %pre.prettyprint
+      %code
+        :preserve
+          $ rspec bowling_spec.rb
+
+          ./bowling_spec.rb:4:
+            uninitialized constant Bowling
+  %section
+    %h2 RSpec
+    %p Write enough code to make it pass
+    %pre.prettify.lang-ruby
+      %code.lang-ruby
+        :preserve
+          # bowling.rb
+          class Bowling
+            def hit(pins)
+            end
+
+            def score
+              0
+            end
+          end
+  %section
+    %h2 RSpec
+    %p Run the example again and enjoy that it's passing
+    %pre.prettyprint
+      %code
+        :preserve
+          $ rspec bowling_spec.rb --format nested
+
+          Bowling#score
+            returns 0 for all gutter game
+
+          Finished in 0.007534 seconds
+
+          1 example, 0 failures
+  %section
     %h2 BDD Explained
     %img{src: "images/bdd-cycle-around-tdd-cycles.png", alt: "Ruby logo"}
 %section
