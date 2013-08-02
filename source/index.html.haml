@@ -1,7 +1,8 @@
 %section#intro
 
   %h1 Ruby
-  %h3 Rails and BDD
+  %h3.fragment{:"data-fragment-index" => "0" } Ruby on Rails 
+  %h3.fragment{:"data-fragment-index" => "1" } and BDD
   %img{src: "images/ruby-mini-logo.png", alt: "Ruby logo"}
   %p
     %small Created by BB and SS
@@ -16,7 +17,7 @@
       %li 1993 - 1995 - 2005
       %li Perl - Python - Smalltalk
       %li Several implementations - RubySpec
-      %li Happy and Productive Programmers
+      %li.fragment{:"data-fragment-index" => "0" } Happy and Productive Programmers
     %img{src: "images/ruby-lang-matz.png", alt: "Ruby logo"}
     %img{src: "images/david.heinemeier.jpg", width:"200px", height:"200px", alt: "Ruby logo"}
     
@@ -29,20 +30,23 @@
     %h2 Going deep...
     %ul
       %li Fully Object Oriented
-      %li Interpreted
-      %li Strongly typed with dynamic types
-      %li Duck typing
-      %li Succint and flexible syntax
+      %li.fragment{:"data-fragment-index" => "0" } Interpreted
+      %li.fragment{:"data-fragment-index" => "1" } Strongly typed with dynamic types
+      %li.fragment{:"data-fragment-index" => "2" } Duck typing
+      %li.fragment{:"data-fragment-index" => "3" } Succint and flexible syntax
   %section
     %h2 Hello World
-    %pre.prettyprint.lang-ruby
+    %pre.prettyprint.lang-ruby.fragment{:"data-fragment-index" => "0" }
       %code.lang-ruby puts 'Hello World'
+    %p.fragment{:"data-fragment-index" => "1"}
+      >> Hello World
   %section
     %h2 Conventions
     %ul
       %li Classes
       %li variables
       %li CONSTANTS
+    %img{src: "images/standards.gif", alt: "Ruby logo"} 
 
   %section
     %h2 IRB
