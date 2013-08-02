@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <!-- %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/ -->
+    <title>Ruby, Rails and BDD introductory course</title>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Fresca' rel='stylesheet' type='text/css'></link> -->
+    <link href="stylesheets/all.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="javascripts/head.min.js" type="text/javascript"></script>
+  </head>
+  <body class='index'>
+    <div class='reveal'>
+      <div class='state-background'>
+        <div class='slides'>
+          <section id='intro'>
+  <h1>Ruby</h1>
+  <h3 class='fragment' data-fragment-index='0'>Ruby on Rails</h3>
+  <h3 class='fragment' data-fragment-index='1'>and BDD</h3>
+  <img alt='Ruby logo' src='images/ruby-mini-logo.png' />
+  <p>
+    <small>Created by BB and SS</small>
+  </p>
+</section>
+<section>
+  <section>
+    <h2>Ruby</h2>
+    <p>A little history</p>
+    <img alt='Ruby logo' src='images/896221024257.png' />
+  </section>
+  <section>
+    <h3>Ruby</h3>
+    <ul>
+      <li>1993 - 1995 - 2005</li>
+      <li>Perl - Python - Smalltalk</li>
+      <li>Several implementations - RubySpec</li>
+      <li class='fragment' data-fragment-index='0'>Happy and Productive Programmers</li>
+    </ul>
+    <img alt='Ruby logo' src='images/ruby-lang-matz.png' />
+    <img alt='Ruby logo' height='200px' src='images/david.heinemeier.jpg' width='200px' />
+  </section>
+</section>
+<section>
+  <section>
+    <h2>Ruby Semantics and Syntax</h2>
+    <p>Starting from scratch.</p>
+    <img alt='Ruby logo' src='images/photo-ruby2x.jpg' />
+  </section>
+  <section>
+    <h2>Going deep...</h2>
+    <ul>
+      <li>Fully Object Oriented</li>
+      <li class='fragment' data-fragment-index='0'>Interpreted</li>
+      <li class='fragment' data-fragment-index='1'>Strongly typed with dynamic types</li>
+      <li class='fragment' data-fragment-index='2'>Duck typing</li>
+      <li class='fragment' data-fragment-index='3'>Succint and flexible syntax</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Hello World</h2>
+    <pre class='prettyprint lang-ruby fragment' data-fragment-index='0'><code class='lang-ruby'>puts 'Hello World'</code></pre>
+    <p class='fragment' data-fragment-index='1'>
+      >> Hello World
+    </p>
+  </section>
+  <section>
+    <h2>Conventions</h2>
+    <ul>
+      <li>Classes</li>
+      <li>variables</li>
+      <li>CONSTANTS</li>
+    </ul>
+    <img alt='Ruby logo' src='images/standards.gif' />
+  </section>
+  <section>
+    <h2>IRB</h2>
+    <p>Interactive Ruby Shell</p>
+    <img alt='Ruby logo' src='images/irbconsole.gif' />
+  </section>
+  <section>
+    <h2>RubyGems</h2>
+    <p>Centralized package management.</p>
+    <img alt='Ruby logo' src='images/rubygems.png' />
+  </section>
+</section>
+<section>
+  <section>
+    <h1>Ruby on Rails</h1>
+    <p>Web development that doesn't hurt</p>
+    <img alt='Ruby logo' height='250px' src='images/RubyOnRails.png' width='250px' />
+  </section>
+  <section>
+    <h2>The framework</h2>
+    <ul>
+      <li>MVC Architecture</li>
+      <img src='images/mvc.jpg' />
+      <li>Active Record Pattern</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Convention over configuration</h3>
+    <img alt='Ruby logo' height='550px' src='images/sexpl18.jpg' width='400px' />
+  </section>
+  <section>
+    <h3>Convention over configuration</h3>
+    <ul>
+      <li>Table names</li>
+      <li>Foreign Keys</li>
+      <li>Routing</li>
+      <li>Templates</li>
+      <li>Generators</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Convention over configuration</h3>
+    <p>Doing the configuration</p>
+    <pre><code class='lang-ruby'>class Post < ActiveRecord::Base&#x000A;  set_table_name 'news'&#x000A;&#x000A;  has_many :comments, class_name: 'Comentario', &#x000A;    primary_key: 'news_id'&#x000A;end</code></pre>
+    <p>Following the convention</p>
+    <pre><code class='lang-ruby'>class Post < ActiveRecord::Base&#x000A;  has_many :comments&#x000A;end&#x000A;</code></pre>
+  </section>
+  <section>
+    <h2>Don't Repeat Yourself</h2>
+    <p>Every piece of knowledge must have a single, unambiguous, authoritative representation within a system</p>
+    <img alt='Ruby logo' src='images/DRY.jpg' />
+  </section>
+  <section>
+    <h2>Scaffolding</h2>
+    <img alt='Scaffold' src='images/scaffold.JPG' />
+    <pre><code>$ rails generate scaffold Post title description:text date:date&#x000A;$ rake db:migrate&#x000A;$ rails server</code></pre>
+  </section>
+  <section>
+    <h2>REST</h2>
+    <small>
+      <table class="wikitable">
+      <tbody><tr>
+      <th>Resource</th>
+      <th>GET</th>
+      <th>PUT</th>
+      <th>POST</th>
+      <th>DELETE</th>
+      </tr>
+      <tr>
+      <th><code>http://url.com/resources</code></th>
+      <td><b>List</b> the URIs.</td>
+      <td><b>Replace</b> the entire collection with another collection.</td>
+      <td><b>Create</b> a new entry in the collection.</td>
+      <td><b>Delete</b> the entire collection.</td>
+      </tr>
+      <tr>
+      <th><code>http://url.com/resources/item17</code></th>
+      <td><b>Retrieve</b> a representation of the addressed member of the collection.</td>
+      <td><b>Replace</b> the addressed member of the collection, or if it doesn't exist, <b>create</b> it.</td>
+      <td>Not generally used.</td>
+      <td><b>Delete</b> the addressed member of the collection.</td>
+      </tr>
+      </tbody></table>
+    </small>
+    <p>versus</p>
+    <small>
+      <ul>
+        <li>getUsers()</li>
+        <li>getNewUsersSince(date SinceDate)</li>
+        <li>savePurchaseOrder(string CustomerID, string PurchaseOrderID)</li>
+      </ul>
+    </small>
+    <!-- %img{src: "images/rest3.jpg", width:"300px", height:"500px", alt: "Ruby logo"} -->
+  </section>
+  <section>
+    <h2>The View</h2>
+    <ul>
+      <li>
+        HTML
+        <ul>
+          <li>
+            ERB
+            <pre>&lt;p&gt; Welcome, &lt;%= user.name %&gt; &lt;/p&gt;</pre>
+          </li>
+          <li>
+            Haml
+            <pre>%p= "Welcome, #{user.name}"</pre>
+          </li>
+          <li>
+            Slim
+            <pre>p "Welcome, #{user.name}"</pre>
+          </li>
+        </ul>
+      </li>
+      <li>JSON</li>
+      <li>XML</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Bundler</h2>
+    <img alt='Ruby logo' src='images/gembundler.png' />
+    <p>Gemfile</p>
+    <pre><code>source 'https://rubygems.org'
+    gem 'rails', '3.0.0.rc'
+    gem 'rack-cache'
+    gem 'nokogiri', '~> 1.4.2'</code></pre>
+  </section>
+  <section>
+    <h2>Deployment</h2>
+    <img alt='Ruby logo' height='200px' src='images/Phusion_passenger.png' width='150px' />
+    <img alt='Ruby logo' height='100px' src='images/capistrano.jpg' width='300px' />
+    <img alt='Ruby logo' height='50px' src='images/heroku-logo-white.jpg' width='200px' />
+    <img alt='Ruby logo' height='250px' src='images/engine_yard_logo.jpg' width='200px' />
+    <img alt='Ruby logo' height='150px' src='images/apache.jpg' width='250px' />
+  </section>
+</section>
+<section>
+  <section>
+    <h1>Behavior Driven Development</h1>
+    <p>Cucumber & RSpec</p>
+    <img alt='Ruby logo' src='images/cucumber_logo.png' />
+  </section>
+  <section>
+    <h2>What is BDD?</h2>
+    <blockquote class='fragment' data-fragment-index='0'>
+      BDD is a second-generation, outside-in, pull-based, multiple-stakeholder, multiple-scale, high-automation, agile methodology. It describes a cycle of interactions with well-defined outputs, resulting in the delivery of working, tested software that matters.
+    </blockquote>
+  </section>
+  <section>
+    <h2>BDD</h2>
+    <ul>
+      <li>Acceptance tests</li>
+      <li>Business value</li>
+      <li>Gherkin</li>
+      <li>Natural Language</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Gherkin Example</h2>
+    <pre class='prettyprint'><code>Feature: Division&#x000A;  In order to avoid silly mistakes&#x000A;  Cashiers must be able to calculate a fraction&#x000A;&#x000A;  Scenario: Regular numbers&#x000A;    Given I have entered 3 into the calculator&#x000A;    And I have entered 2 into the calculator&#x000A;    When I press divide&#x000A;    Then the result should be 1.5 on the screen</code></pre>
+  </section>
+  <section>
+    <h2>Gherkin Example</h2>
+    <pre class='prettyprint lang-ruby'><code class='lang-ruby'>Before do&#x000A;  @calc = Calculator.new&#x000A;end&#x000A; &#x000A;After do&#x000A;end&#x000A; &#x000A;Given /I have entered (\d+) into the calculator/ do |n|&#x000A;  @calc.push n.to_i&#x000A;end&#x000A; &#x000A;When /I press (\w+)/ do |op|&#x000A;  @result = @calc.send op&#x000A;end&#x000A; &#x000A;Then /the result should be (.*) on the screen/ do |result|&#x000A;  @result.should == result.to_f&#x000A;end</code></pre>
+  </section>
+  <section>
+    <h2>RSpec</h2>
+    <blockquote>
+      RSpec is a Behavior-Driven Development tool for Ruby programmers. RSpec helps you do the TDD part of BDD, focusing on the documentation and design aspects of TDD.
+    </blockquote>
+    <!-- %img{src: "images/bdd-cycle-around-tdd-cycles.png", alt: "Ruby logo"} -->
+  </section>
+  <section>
+    <h2>RSpec</h2>
+    <p>Express some basic desired behavior</p>
+    <pre class='prettyprint lang-ruby'><code class='lang-ruby'># bowling_spec.rb&#x000A;require 'bowling'&#x000A;&#x000A;describe Bowling, "#score" do&#x000A;  it "returns 0 for all gutter game" do&#x000A;    bowling = Bowling.new&#x000A;    20.times { bowling.hit(0) }&#x000A;    expect(bowling.score).to eq(0)&#x000A;  end&#x000A;end</code></pre>
+  </section>
+  <section>
+    <h2>RSpec</h2>
+    <p>Run the example and watch it fail</p>
+    <pre class='prettyprint'><code>$ rspec bowling_spec.rb&#x000A;&#x000A;./bowling_spec.rb:4:&#x000A;  uninitialized constant Bowling</code></pre>
+  </section>
+  <section>
+    <h2>RSpec</h2>
+    <p>Write enough code to make it pass</p>
+    <pre class='prettify lang-ruby'><code class='lang-ruby'># bowling.rb&#x000A;class Bowling&#x000A;  def hit(pins)&#x000A;  end&#x000A;&#x000A;  def score&#x000A;    0&#x000A;  end&#x000A;end</code></pre>
+  </section>
+  <section>
+    <h2>RSpec</h2>
+    <p>Run the example again and enjoy that it's passing</p>
+    <pre class='prettyprint'><code>$ rspec bowling_spec.rb --format nested&#x000A;&#x000A;Bowling#score&#x000A;  returns 0 for all gutter game&#x000A;&#x000A;Finished in 0.007534 seconds&#x000A;&#x000A;1 example, 0 failures</code></pre>
+  </section>
+  <section>
+    <h2>BDD Explained</h2>
+    <img alt='Ruby logo' src='images/bdd-cycle-around-tdd-cycles.png' />
+  </section>
+</section>
+<section>
+  <h1>Questions ?</h1>
+  <img alt='Ruby logo' src='images/questions.jpg' />
+</section>
+<section>
+  <img alt='Ruby logo' height='600px' src='images/thank-you-funny.jpg' width='610px' />
+</section>
+        </div>
+        <!-- %aside.controls -->
+        <!-- %a.left(href='#') &#x25C4; -->
+        <!-- %a.right(href="#") &#x25BA; -->
+        <!-- %a.up(href="#") &#x25B2; -->
+        <!-- %a.down(href="#") &#x25BC; -->
+        <div class='progress'>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <script src="javascripts/all.js" type="text/javascript"></script>
+  </body>
+</html>
