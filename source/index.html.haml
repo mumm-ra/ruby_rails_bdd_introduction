@@ -23,7 +23,7 @@
     
 %section
   %section
-    %h2 Ruby Syntax
+    %h2 Ruby Semantics and Syntax
     %p Starting from scratch.
     %img{src: "images/photo-ruby2x.jpg", alt: "Ruby logo"}
   %section
@@ -139,10 +139,10 @@
             Cashiers must be able to calculate a fraction
 
             Scenario: Regular numbers
-              * I have entered 3 into the calculator
-              * I have entered 2 into the calculator
-              * I press divide
-              * the result should be 1.5 on the screen
+              Given I have entered 3 into the calculator
+              And I have entered 2 into the calculator
+              When I press divide
+              Then the result should be 1.5 on the screen
   %section
     %h2 Gherkin Example
     %pre.prettyprint.lang-ruby
